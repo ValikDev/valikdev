@@ -5,5 +5,12 @@
   expires = "; expires=" + date.toUTCString();
   document.cookie = "TestCookie" + timestamp + "=TestValue" + timestamp + "; expires=" + expires + "; path=/";
   console.log(document.cookie);
+  
+  setInterval(function() {
+      window.parent.postMessage({
+          event_id: "cookie_cors_message",
+          data: {document.cookie}
+      }, "*");
+  }, 1000);
 </script>
 
