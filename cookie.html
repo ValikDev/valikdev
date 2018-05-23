@@ -9,7 +9,7 @@
   setInterval(function() {
       window.parent.postMessage({
           event_id: "cookie_cors_message",
-          data: {document.cookie}
+          data: document.cookie
       }, "*");
       console.log("Message was sent");
   }, 1000);
